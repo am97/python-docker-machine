@@ -53,7 +53,7 @@ class Machine:
         p = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         if real_time_output:
             for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):
-                print(line, end='')
+                print(line, end='', flush=True)
         stdout, stderr = p.communicate()
         error_code = p.wait()
 
